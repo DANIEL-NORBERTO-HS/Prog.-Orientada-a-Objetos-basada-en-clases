@@ -45,7 +45,7 @@ class JuegoDados{
         else if ( (this.jugador2.caraDado1 + this.jugador2.caraDado2 == 7)
             && (this.jugador1.caraDado1 + this.jugador2.caraDado1 != 7) )
             return this.jugador2.nombre;
-        else return "Empate";
+        else return null;
     }
 }
 
@@ -85,7 +85,7 @@ class torneoDados{
         this.jugador2 = new Jugador(j2);
     }
 
-    //metodo donde se llevan a cabo las partidas del torneo
+    //función jugar donde se llevan a cabo las partidas del torneo
     jugar = function(){
         let salida = true;
         while(salida){
@@ -104,8 +104,8 @@ class torneoDados{
         }
     }
 
-    //creacion de metodo privado donde se obtienen los resultados
-    #_resultado(){
+    //creacion de función privada resultado donde se obtienen los resultados
+    #_resultado=function(){
         if(this.juegosGanadosJugador1==3){
             return this.jugador1.nombre;
         }else{
@@ -113,12 +113,12 @@ class torneoDados{
         }
     }
 
-    //get del metodo de resultado (metodo privado)
+    //get de la función de resultado (metodo privado)
     get resultado(){
         return this.#_resultado();
     }
     
-    //set del metodo de resultado (metodo privado) - este funciona para cambia el resultado (cambiando al ganador por otro)
+    //set del función de resultado (metodo privado) - este funciona para cambiar el resultado (cambiando al ganador por otro)
     set resultado(ganador){
         if(ganador==this.jugador1.nombre){
             if(this.juegosGanadosJugador1!=3){
